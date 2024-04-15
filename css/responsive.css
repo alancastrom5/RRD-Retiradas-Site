@@ -98,9 +98,6 @@
   .info_section .social_box {
     margin-bottom: 25px;
   }
-  .whatsapp-link {
-    right: 66%;
-}
 }
 
 
@@ -125,7 +122,11 @@
   }
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+  .whatsapp-link {
+    right: 66%;
+}
+}
 
 @media (max-width: 420px) {}
 
