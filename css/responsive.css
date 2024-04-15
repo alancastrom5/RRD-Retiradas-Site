@@ -98,8 +98,13 @@
   .info_section .social_box {
     margin-bottom: 25px;
   }
-
+  .whatsapp-link {
 }
+.icone_whatsapp{
+  left: 81%;
+}
+}
+
 
 @media (max-width: 576px) {
   .header_section .header_top .social_box {

@@ -5,13 +5,19 @@ body {
   overflow-x: hidden;
 }
 
+.icone_whatsapp{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  left: 93%;
+}
 
 .whatsapp-link {
   position: fixed;
   width: 60px;
   height: 60px;
-  bottom: 40px;
-  right: 40px;
+  bottom: 32px;
   background-color: #25d366;
   color: #fff;
   border-radius: 50px;
