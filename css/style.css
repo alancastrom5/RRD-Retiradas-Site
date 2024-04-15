@@ -33,12 +33,19 @@ body {
   animation: pulse 1.5s infinite;
   z-index: 1000;
 }
-
 .fa-whatsapp {
   margin-top: 14px;
 }
 
-
+.formulario_itens{
+  margin: 60px 0px;
+}
+.layout_padding1{
+  padding: 0;
+}
+.line{
+  border-top: 2.5px solid rgba(0, 0, 0, 1);
+}
 
 .layout_padding {
   padding: 90px 0;
