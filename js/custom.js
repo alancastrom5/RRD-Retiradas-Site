@@ -75,7 +75,7 @@ numberInput.addEventListener('input', function() {
 
 // Recupera o valor armazenado em localStorage quando necessário
 const valorSalvo = localStorage.getItem('valorCEP');
-console.log('Valor salvo:', valorSalvo);
+//console.log('Valor salvo:', valorSalvo);
 
 document.addEventListener('DOMContentLoaded', function() {
     const checkboxes = document.querySelectorAll('.form-check-input');
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const checkboxSalvo = localStorage.getItem('Opcoes_Marcadas');
             const checkboxesMarcadosFormatados = JSON.parse(checkboxSalvo).join(', ');
-            console.log(checkboxesMarcadosFormatados);
+        //    console.log(checkboxesMarcadosFormatados);
 
 
             
@@ -107,5 +107,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const checkboxSalvo = localStorage.getItem('Opcoes_Marcadas');
     const checkboxesMarcados = JSON.parse(checkboxSalvo);
     
-    console.log(checkboxesMarcados); // Aqui você tem o valor como um objeto JavaScript
+   // console.log(checkboxesMarcados); // Aqui você tem o valor como um objeto JavaScript
 });
+
+function limitarTamanho(elemento, maximo) {
+    if (elemento.value.length > maximo) {
+      elemento.value = elemento.value.slice(0, maximo);
+    }
+  }
+  
