@@ -69,25 +69,43 @@ numberInput.addEventListener('input', function() {
     // Captura o valor do campo de entrada
     const valorCEP = numberInput.value;
     
-    // Salva o valor em localStorage junto com o timestamp atual
-    const expirationTime = Date.now() + 5 * 60 * 1000; // 5 minutos em milissegundos
-    const valorASalvar = (parseFloat(valorCEP) > 0) ? '100,00' : valorCEP;
-    localStorage.setItem('valorCEP', JSON.stringify({ valor: valorASalvar, expirationTime: expirationTime }));
+    // Salva o valor em localStorage
+    localStorage.setItem('valorCEP', valorCEP);
 });
 
 // Recupera o valor armazenado em localStorage quando necessário
-const valorSalvoString = localStorage.getItem('valorCEP');
-if (valorSalvoString) {
-    const { valor, expirationTime } = JSON.parse(valorSalvoString);
-    const currentTime = Date.now();
-    if (currentTime < expirationTime) {
-        // O valor ainda está dentro do prazo de validade
-        console.log('Valor salvo:', valor);
-        const valorFormatado = (valor === '100,00') ? valor : `R$: ${valor}`;
-        document.querySelector('.form-label_1').innerHTML += ` ${valorFormatado}`;
-    } else {
-        // O valor expirou, então remova-o do localStorage
-        localStorage.removeItem('valorCEP');
-        console.log('O valor do CEP expirou e foi removido.');
-    }
-}
+const valorSalvo = localStorage.getItem('valorCEP');
+console.log('Valor salvo:', valorSalvo);
+
+document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('.form-check-input');
+
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function(event) {
+            const checkboxesMarcados = [];
+
+            // Percorre todos os checkboxes e verifica se estão marcados
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox.checked) {
+                    checkboxesMarcados.push(checkbox.id);
+                }
+            });
+
+            localStorage.setItem('Opcoes_Marcadas', JSON.stringify(checkboxesMarcados));
+
+            const checkboxSalvo = localStorage.getItem('Opcoes_Marcadas');
+            const checkboxesMarcadosFormatados = JSON.parse(checkboxSalvo).join(', ');
+            console.log(checkboxesMarcadosFormatados);
+
+
+            
+            const botaoOrcamento = document.querySelector('.orcamento_personalizado');
+            const link_zap = `https://api.whatsapp.com/send/?phone=5511951858692&text=Solicito+or%C3%A7amento+para+CEP+${valorSalvo}+recolhendo+1x${checkboxesMarcadosFormatados}&type=phone_number&app_absent=0`;
+            botaoOrcamento.setAttribute('href', link_zap);
+        });
+    });
+    const checkboxSalvo = localStorage.getItem('Opcoes_Marcadas');
+    const checkboxesMarcados = JSON.parse(checkboxSalvo);
+    
+    console.log(checkboxesMarcados); // Aqui você tem o valor como um objeto JavaScript
+});
