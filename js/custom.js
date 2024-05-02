@@ -64,18 +64,16 @@ $(document).ready(function () {
 // Selecione o campo de entrada
 const numberInput = document.querySelector('#exampleInputNumber');
 
+// Defina uma variável global para armazenar o valor do CEP
+let valorCEP = '';
+
 // Adicione um ouvinte de evento para capturar o valor quando o usuário inseri-lo
 numberInput.addEventListener('input', function() {
     // Captura o valor do campo de entrada
-    const valorCEP = numberInput.value;
-    
-    // Salva o valor em localStorage
-    localStorage.setItem('valorCEP', valorCEP);
+    valorCEP = numberInput.value;
+    //console.log('Valor salvo:', valorCEP);
 });
 
-// Recupera o valor armazenado em localStorage quando necessário
-const valorSalvo = localStorage.getItem('valorCEP');
-//console.log('Valor salvo:', valorSalvo);
 
 document.addEventListener('DOMContentLoaded', function() {
     const checkboxes = document.querySelectorAll('.form-check-input');
@@ -100,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             
             const botaoOrcamento = document.querySelector('.orcamento_personalizado');
-            const link_zap = `https://api.whatsapp.com/send/?phone=5511951858692&text=Solicito+or%C3%A7amento+para+CEP+${valorSalvo}+recolhendo+1x${checkboxesMarcadosFormatados}&type=phone_number&app_absent=0`;
+            const link_zap = `https://api.whatsapp.com/send/?phone=5511951858692&text=Solicito+or%C3%A7amento+para+CEP+${valorCEP}+recolhendo+1x${checkboxesMarcadosFormatados}&type=phone_number&app_absent=0`;
             botaoOrcamento.setAttribute('href', link_zap);
         });
     });
