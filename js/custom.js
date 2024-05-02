@@ -64,6 +64,7 @@ $(document).ready(function () {
 // Selecione o campo de entrada
 const numberInput = document.querySelector('#exampleInputNumber');
 
+
 // Defina uma variável global para armazenar o valor do CEP
 let valorCEP = '';
 
