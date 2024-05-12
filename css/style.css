@@ -20,15 +20,15 @@ body {
 
 .whatsapp-link {
   position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 32px;
-  right: 15px;
+  width: 65px;
+  height: 65px;
+  bottom: 40px;
+  right: 21px;
   background-color: #25d366;
   color: #fff;
   border-radius: 50px;
   text-align: center;
-  font-size: 30px;
+  font-size: 35px;
   box-shadow: 0 0 0 0 rgba(0, 255, 0, 0);
   animation: pulse 1.5s infinite;
   z-index: 1000;
