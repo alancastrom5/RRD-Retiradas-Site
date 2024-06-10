@@ -623,10 +623,6 @@ a:focus {
   position: relative;
 }
 
-.portfolio_section .box .img-box img {
-  width: 100%;
-}
-
 .portfolio_section .box .img-box .btn_overlay {
   position: absolute;
   top: 50%;
