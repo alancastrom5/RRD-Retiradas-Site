@@ -24,15 +24,15 @@ var owl = $('.portfolio_carousel').owlCarousel({
     responsive: {
         0: {
             center: false,
-            items: 1,
+            items: 2,
             margin: 0
         },
         576: {
-            items: 2
+            items: 4
         },
-        991: {
+        992: {
             center: true,
-            items: 3
+            items: 6
         }
     }
 })
